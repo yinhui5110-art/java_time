@@ -28,9 +28,9 @@ public class ConditionElse {
 		// 당첨 핸드폰번호와 일치한다면 축하축하를 출력해주고
 		//				 일치하지 않는다면 다음기회에를 출력
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("핸드폰 번호 뒷부분 네자리를 입력해주세요 > ");
-		String phoneNumber =  sc.nextLine();
+		//Scanner sc = new Scanner(System.in);
+		//System.out.println("핸드폰 번호 뒷부분 네자리를 입력해주세요 > ");
+		//String phoneNumber =  sc.nextLine();
 		//System.out.println(phoneNumber);
 		
 		// 어떤 값을 가지고 사용자가 입력한 폰번호 == phoneNumber / 7777
@@ -38,13 +38,13 @@ public class ConditionElse {
 		// 문자열 값을 비교하고 싶을때 : ==(동등비교연산자)의 경우 기본타입 자료형 8개까지만 사용가능하기 때믄에
 		//							equals()라는 메소드를 호출해서 비교해주어야 함
 		//                          문자열 값이 일치할 경우 true를 변환 일치하지 않을경우 false를 반환
-		if(phoneNumber.equals("7777")) {
+		//if(phoneNumber.equals("7777")) {
 			
 			//사용자가 입력한 핸드폰번호와 7777이 일치한다면
-			System.out.println("축하합니다~ 백만원 상품권 당첨입니다~~");
-		} else {
-			System.out.println("아쉽지만 다음기회에~ ");
-		}
+			//System.out.println("축하합니다~ 백만원 상품권 당첨입니다~~");
+		//} else {
+			//System.out.println("아쉽지만 다음기회에~ ");
+		//}
 		/*
 		 * if(!(phooneNumber.equals("7777"))) {
 		     System.out.println("아쉽지만 다음기회에~");
@@ -73,15 +73,82 @@ public class ConditionElse {
 	 public void method2() {
 		 //핸드폰 뒷자리를 입력받아서 1등, 2등, 3등, 아쉽지만 미당첨 출력해주기
 		 //						7777, 1111,  5555
-		 Scanner sc = new Scanner(System.in);
-		 System.out.println("핸드폰 번호 뒷자리를 입력해주세요 > ");
-		 String phoneNumber = sc.nextLine();
-		 System.out.println("사용자가 입력한 폰번호 : " + phoneNumber);
+		// Scanner sc = new Scanner(System.in);
+		// System.out.println("핸드폰 번호 뒷자리를 입력해주세요 > ");
+		// String phoneNumber = sc.nextLine();
+		 //System.out.println("사용자가 입력한 폰번호 : " + phoneNumber);
 		 
 		 //내가 해야할 일을 한글로 적어보기
-		 
+		 // 만약에 사용자가 입력한 값이 7777이면 일등 축하 출력해보기
+		 //수정해야 하는 부분은 변수를 선언해준다.
+		// String message = "등 당첨 축하드려요 ♥★♥";
+		// if(phoneNumber.equals ("7777")) {
+			 //System.out.println("일" + message);
+		// } else if(phoneNumber.equals(6666)) {
+			 // 만약에 사용자가 입력한 값이 6666과 일치하다면 2등 당첨입니다 라고 출력
+			 //System.out.println("이" + message);
+		// } else if(phoneNumber.equals("5555")) {
+			 // 만약에 사용자가 입력한 값이 5555와 일치하다면 3등 당첨입니다 라고 출력
+			 //System.out.println("삼" + message);
+		// } else {
+			 //System.out.println("아쉽지만 다음 기회에 다시 도전해주세요!");
+			 
+		// }
+			
+				 
+			 
 		 
 	 }
+	
+	public void ageChek() {
+		// 사용자에게 나이(정수)를 입력받고       => Scanner, nextInt()
+		// 입력받은 나이에 따라서 각기 다른 내용을 출력해주세요.  => if ~ else if, System.out.println()
+		// 1 ~ 12 : 어린이 입니다.
+		//13~17 : 청소년 입니다.
+		//18~ :성인입니다.
+		//0, - : 잘 못 입력하셨습니다.
+		
+		
+		Scanner sc = new Scanner(System.in);
+			System.out.println("나이를 입력해주세요(예 : 15) > ");
+			int age = sc.nextInt();
+			//System.out.println(age);
+			
+			// 1. 어떤값을 사용할 것인가(age) /비교대상, 1~12 13~17 18~ 0(else)
+			// 2. 어떤 연산을 할 것인가
+//		if(1 <= age && age <= 12) {
+//			System.out.println("어린이 입니다.");
+//		} else if(13<= age && age <= 17) {
+//			System.out.println("청소년 입니다.");
+//		} else if(18 <= age) {
+//			System.out.println("성인 입니다");
+//		} else {
+//			System.out.println("잘 못 입력했습니다");
+//		}
+		
+		//ageCheck_ver 2.0
+		if(age <0) {
+			System.out.println("올바른 나이를 입력해주세요.");
+		}else if(age >= 18) {
+			System.out.println("성인 입니다.");
+		}else if(age <= 12) {
+			System.out.println("어린이 입니다.");
+		}else {
+			System.out.println("청소년 입니다.");
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
