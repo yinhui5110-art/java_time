@@ -1,5 +1,7 @@
 package com.kh.array;
 
+import java.util.Arrays;
+
 public class Array {
 
 	// 변수(Variable)
@@ -92,7 +94,7 @@ public class Array {
 	}
 	
 	
-	public void method2() {
+	   public void method2() {
 		// 배열은 아주 중요하다~!!
 		
 		// 1. 배열 선언 및 할당
@@ -140,15 +142,60 @@ public class Array {
 		// 해시코드 : 주소값을 10진수(int형)형태로 나타낸 것이다.
 		// 문자형을  곱하고 나누고 더해서 10진수(int형)로 나타내는것
 		//해시코드가 다르면 다른 배열로 간주 한다.
-		
 		System.out.println(numbers1.hashCode());
 		System.out.println(numbers2.hashCode());
 		
 		
-		
-		
-		
 	} 
+	
+		public void createLottoNumber() {
+			int[] lottoNumbers = new int[6]; //인텍스 0 ~ 5중에 넣어 줄 수 있다.
+			//lottoNumbers[0] = (int)(Math.random()* 45) + 1;
+			
+			for(int i = 0; i < 6; i++) {
+				lottoNumbers[i] = (int)(Math.random()* 45) + 1;
+			}
+			// Arrays.toString(배열식별자) => 배열의 요소들을 출력해줌
+			System.out.println(Arrays.toString(lottoNumbers));
+			
+			
+		}
+
+	
+		public void method3() {
+			// 1. 배열 선언 및 할당
+			String[] gugudan = new String[10];
+			// 2. 
+			gugudan[0] = "2 X 1 = 2";
+			gugudan[1] = "2 X 2 = 4";
+			gugudan[2] = "2 X 3 = 6";
+			gugudan[3] = "2 X 4 = 8";
+			gugudan[4] = "2 X 5 = 10";
+			gugudan[5] = "2 X 6 = 12";
+			gugudan[6] = "2 X 7 = 14";
+			gugudan[7] = "2 X 8 = 16";
+			gugudan[8] = "2 X 9 = 18";
+			gugudan[9] = "2 X 10 = 20";  //문법적으로 문제가 없다
+			// ArrayIndexOutOfBounds
+			/*
+			 * 	ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 9
+				at com.kh.array.Array.method3(Array.java:178)
+				at com.kh.array.run.Run.main(Run.java:12)
+				-> 배열의 인덱스 범위 바운드을 벗어났다 라고 경고로 알려주고있다.
+			 */
+			/*
+			 * AI를 활용해서 현재 내 코드의 잘못된 점을 파악
+			 * -> 내것으로 만들지 못하고 다음에 또 기억이 안나거나 모르면
+			 * 	  AI를 사용하게된다.
+			 * 
+			 * -> AI 사용할때 질문을 구체적으로 물어보고 나의 상황을 명확하게 공유하고
+			 * 	  피드백의 주페를 명확하게 설정해야 한다.
+			 * 
+			 */
+			
+			//3. 출력
+			System.out.println(Arrays.toString(gugudan));
+		}
 	
 	
 	
