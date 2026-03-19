@@ -26,7 +26,6 @@ public class PuppyCare {
 		
 		//변수선언 ->Puppy puppy = new Puppy(); //<-heap영역에 puppy객체를 생성
 		Puppy puppy = new Puppy();
-		//
 		System.out.println("아이구 강아지 너무 귀여워요 이름이 무엇? >");
 		puppy.name = sc.nextLine();
 		System.out.println("아이구~ 무슨 종? > ");
@@ -37,16 +36,37 @@ public class PuppyCare {
 		puppy.age = sc.nextInt();
 		System.out.println("몸무게는..? >");
 		puppy.weight = sc.nextInt();
+		sc.nextLine();
 		
 		while(true) {
 			System.out.println("♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡");
-			System.out.println(puppy.name + "의 정보!");
+			System.out.println(puppy.name + "의 정보!"); //name이라는변수안에 대입된 주소값을 더하기 의 정보! 문자열을 더해서 출력.
 			System.out.println("나이 : " + puppy.age);
 			System.out.println("성별 :" + puppy.gender);
 			System.out.println("종 :" + puppy.species);
 			System.out.println("몸무게 :" + puppy.weight);
 			System.out.println("♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡");
-			break;
+			System.out.println();
+			
+			System.out.println("메뉴를 선택해주세요 ! ");
+			if(puppy.weight >10) {
+				System.out.println(" ※ 운동을 위해 앉기를 추천드립니다~!" );
+			}
+			System.out.println("1. 짖기 / 2. 앉기 / 3. 프로그램 종료 > ");
+			int menuNo = sc.nextInt();
+			sc.nextLine();
+			
+			switch(menuNo) {
+			case 1 : puppy.bark();break;
+			case 2 : puppy.sit(); break;
+			case 3 :  return;
+			default : System.out.println("메뉴를 다시 선택해주세요 !");
+			
+			}
+			
+			
+			
+			
 		}
 		
 	}
