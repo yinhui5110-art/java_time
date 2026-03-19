@@ -1,6 +1,7 @@
 package com.kh.chap01.abstraction.model.vo.run;
 
 import com.kh.chap01.abstraction.model.vo.Puppy;
+import com.kh.chap01.abstraction.view.PuppyCare;
 
 public class Run {
 
@@ -70,9 +71,16 @@ public class Run {
 		khan.sit();
 		System.out.println(khan.weight );
 		
+		
+		
+		
+		PuppyCare pc = new PuppyCare(); //객체생성
+		//run이라는 메서드가 heap메모리에 있는상태
+		pc.run();
+		
+		
 	}
 	
-		
 		
 		
 	
