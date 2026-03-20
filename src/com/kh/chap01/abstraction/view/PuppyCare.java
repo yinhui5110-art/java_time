@@ -53,17 +53,19 @@ public class PuppyCare {
 				System.out.println(" ※ 운동을 위해 앉기를 추천드립니다~!" );
 			}
 			System.out.println("1. 짖기 / 2. 앉기 / 3. 프로그램 종료 > ");
-			int menuNo = sc.nextInt();
-			sc.nextLine();
+			/*인트변수 메뉴넘버 선언*/int menuNo = sc.nextInt();
+			sc.nextLine();//입력버퍼에 있는것이 날아간다
 			
-			switch(menuNo) {
-			case 1 : puppy.bark();break;
+			/* 정수값 1*/switch(menuNo) {
+			/*동등비교 연산*/case 1 : puppy.bark();break;//바크라는 메서드 호출
 			case 2 : puppy.sit(); break;
 			case 3 :  return;
 			default : System.out.println("메뉴를 다시 선택해주세요 !");
 			
 			}
 			
+			//** 코드 글로 써보기
+			//** 코드 말로 해보기
 			
 			
 			
