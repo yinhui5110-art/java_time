@@ -135,17 +135,44 @@ package com.kh.chap02.encapsulation.model.vo;
 			 * 
 			 */
 			
+			/*
+			 * 1. 값을 숨긴다 => 필드의 접근제한자를 private으로 선언
+			 * 2. 메소드를 통해 필드에 접근할 수 있게 만든다
+			 */
+			
 			// 메소드를 호출한 곳으로 name필드값을 돌려주고 싶음
 			
+			/*
 			public void getName() {
 				  return; //눈에 보이지 않는 return; 존재한다.
-				
-			}
 			
+			
+			
+			}
+			*/
+			
+		public String getName() {
+			return name; // getter에서 this를 붙이지 않는다.(쓸게 많아지면 실수할 경우가 많아서 실수를 줄이기 위해서)
+						//개발생산성을 높이기 위해서 
+			
+		}
+		
+		// 개수를 반환해주는 메소드
+		public int getAmount() {
+			return amount;// void에서 amount를 반환 할 수 없어서 int로 바꿔준다.
+			
+		}
 	
-	
-	
-	
+		public int getPrice() {
+			return price;
+			
+		}
 	
 
+		public String info() {
+			String info = "자판기 =[제품명 : " +name + ", 가격 :" + price + ", 재고 : "+ amount +"]";
+			return info;
+		}
+
+		
 }

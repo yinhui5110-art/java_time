@@ -1,5 +1,7 @@
 package com.kh.chap02.encapsulation.run;
 
+import java.util.Scanner;
+
 import com.kh.chap02.encapsulation.model.vo.AutoSellingMachine;
 
 public class Run {
@@ -53,7 +55,7 @@ public class Run {
 		
 		asm.setAmount(8);
 		
-		asm.getName(); //asm의 name을 달라고 하는것이다. heap영역안에 있는 필드에서 name을 반환해주는 것.
+		asm.getPrice(); //asm의 name을 달라고 하는것이다. heap영역안에 있는 필드에서 name을 반환해주는 것.
 		
 		
 		// 함수 == BuiltInFunction (내장함수)( 자바에서는 내장함수를 개념하지 않는다.)
@@ -71,11 +73,22 @@ public class Run {
 		 */
 		
 		
+		String name = asm.getName();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println(name);
 		
 		
+		int amount = asm.getAmount();
+		
+		System.out.println(amount);
+		
+		int price = asm.getPrice();
+		System.out.println(price);
 		
 		
-		
+		System.out.println("자판기 = [제품명: " + name + ", 가격 : " + price +  ", 재고 : "+ amount +"]");
 		
 		
 		
