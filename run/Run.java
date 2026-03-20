@@ -70,6 +70,7 @@ public class Run {
 		 * 
 		 */
 		
+		asm.getName();
 		
 		
 		

@@ -137,12 +137,17 @@ package com.kh.chap02.encapsulation.model.vo;
 			
 			// 메소드를 호출한 곳으로 name필드값을 돌려주고 싶음
 			
+			/*
 			public void getName() {
 				  return; //눈에 보이지 않는 return; 존재한다.
-				
-			}
 			
-	
+			
+			
+			}
+			*/
+		public String getName() {
+			return "네임필드값";
+		}
 	
 	
 	
