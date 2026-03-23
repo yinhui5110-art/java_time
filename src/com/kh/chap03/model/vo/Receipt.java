@@ -28,7 +28,7 @@ public class Receipt {
 	public void setPayment(String payment) {
 		this.payment =payment;
 	}
-	public void setStorNme(String storeNme) {
+	public void setStoreName(String storeName) {
 		this.storeName = storeName;
 	}
 	
@@ -38,9 +38,10 @@ public class Receipt {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	//info
+	//info()
 	public String info() {
 		String info = "상품명 : " + storeName +",금액 : "+ price + "결제수단 :" + payment + ",결제일시 :" + date;
+		
 		return info;
 		
 						
