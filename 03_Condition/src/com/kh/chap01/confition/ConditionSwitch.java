@@ -1,0 +1,191 @@
+package com.kh.chap01.confition;
+
+import java.util.Scanner;
+
+public class ConditionSwitch {
+
+	public void method0() {
+		// 스위치문 공부하기!
+		Scanner sc = new Scanner(System.in);
+		System.out.println("몇 층 가세요? (B1 / B2 / B3) > ");
+		String floor = sc.nextLine();
+		
+		//switch는 동등비교
+		switch(floor) { //Switch가 가장먼저 괄호안에 있는 조건식을 확인한다
+		case "B1" : System.out.println("지하 1층입니다. 문이 열립니다.");
+		break;// break룰 만나면 switch 밖으로 벗어난다
+		case "B2" : System.out.println("지하 2층입니다. 문이 열립니다.");
+		break;
+		case "B3" : System.out.println("지하 3층입니다. 문이 열립니다.");
+		
+		}
+		
+//		switch(floor) { //Switch가 가장먼저 괄호안에 있는 조건식을 확인한다
+//		case "B1" : System.out.println("지하 1층입니다. 문이 열립니다.");
+//		break;// break룰 만나면 switch 밖으로 벗어난다
+//		case "B2" : System.out.println("지하 2층입니다. 문이 열립니다.");
+//		break;
+//		case "B3" : System.out.println("지하 3층입니다. 문이 열립니다.");
+      // => break를 안쓰면 다음주에 있는 내용도 같이 출력된다
+		//그래서 break 꼭!! 사용해야 한다.
+		
+		/*
+		 * switch 문
+		 * [표현식]
+		 * 
+		 * 
+		 * switch(case문에 기술할 동등비교 대상) {
+		 * case 정수, 실수, 문자, 문자열 :  실행할 코드;
+		 * }
+		 * 
+		 * switch(정수|| 실수|| 문자|| 문자열) {
+		 * case 값1 : 실행할코드a; //동등비교 대상 == 값1 true일 경우 실행할코드 a를 수행
+		 * break;				//
+		 * case 값2 : 실행할코드b; //동등비교 대상 == 값2 true일 경우 실행할코드 b를 수행
+		 * break;
+		 * case 값n :	실행할코드c; //동등비교 대상 == 값n true일 경우 실행할코드 c를 수행
+		 * break;
+		 * default : 실행할코드; // == else
+		 * }
+		 * 
+		 * 
+		 */
+	}
+	
+		// 조회하는 프로그램 => 사람이름을 입력하면 정보를 조회해주는 프로그램
+		public void findByName() {
+			
+			// 사용자에게 사람이름을 입력받아서
+			// 사람의 정보를 출력
+			
+		
+			// 고길동 : 남성, 서울특별시 도봉구 쌍문동, 좋아하는 것 : 술, 싫어하는것 : 둘리 일당
+			// 짱구 : 남성, 서울특별시 초록구 떡잎마음, 좋아하는 것: 가족; 싫어나는 것: 피망
+			//둘리 : 수컷, 서울특별시 도봉구 쌍문동, 좋아하는 것 :  장난치기, 싫어하는 것: 고길동
+			// 도라에몽 :  없음, 도쿄도 네리마구 츠키미다이, 좋아하는 것 : 노진구, 싫어하는 것 : 쥐
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.print("검색할 이름을 입력해주세요 > ");
+			String name = sc.nextLine();
+			System.out.println(name);
+			
+			
+			/*switch(name) { 
+			case "고길동" : System.out.println("고길동 : 남성, 서울특별시 도봉구 쌍문동, 좋아하는 것 : 술, 싫어하는것 : 둘리 일당");
+			break;
+			case "짱구" : System.out.println("짱구 : 남성, 서울특별시 초록구 떡잎마을, 좋아하는 것: 가족; 싫어나는 것: 피망");
+			break;
+			case "둘리" : System.out.println("둘리 : 수컷, 서울특별시 도봉구 쌍문동, 좋아하는 것 :  장난치기, 싫어하는 것: 고길동 ");
+			break;
+			case "도라에몽" :System.out.println("도라에몽 :  없음, 도쿄도 네리마구 츠키미다이, 좋아하는 것 : 노진구, 싫어하는 것 : 쥐");
+			break;
+			default : System.out.println("검색 할 수 없는 이름입니다.");
+			 }
+			*/
+			
+			// 첫 번째
+			String address = switch(name) {
+			case "고길동" , "둘리"-> "서울특별시 도봉구 쌍문동";
+			case  "짱구" -> "서울특별시 초록구 떡잎마을";
+			case "도라에몽" -> "도쿄도 네리마구 츠키미다이";
+			default -> throw new IllegalArgumentException("Unexpected value: " + name);
+			
+			};
+			
+			//System.out.println(address);
+			
+			// 두 번째 -> 중복제거하기
+			String favorite = "";
+			switch(name) {
+			case "고길동" : favorite = "술"; break;
+			case "짱구"	: favorite = "가족"; break;
+			case "둘리" : favorite = "장난치기"; break;
+			case "도라에몽" : favorite = "노진구"; break;
+			default : System.out.println("그런 사람은 존재하지 않습니다.");
+			return; //현재 메소드 영역을 아예 빠져나가는 구문-> 나를 호출한 곳으로 돌아감
+			} // break구문을 만나면 빠져나오는 부분
+			 
+			System.out.println(name + "=" + "거주지 : " + address + ", 좋아하는것 : " + favorite);
+			//returm구문을 만나는 순간 메소드의 닫은 Scope로 이동
+		}
+
+			// 전통적인 로그인 기능 구현
+			public void login() {
+				
+				//구현하고
+				// 기획 / 설계
+				// 기획 -> 뭘 만들지?
+				//설계 -> 어떻게 만들지?
+				
+				// 로그인 기능 구현 -> 기획은 끝
+				// 설계
+				// "로그인" -> 만들어보기
+				// 기능들을 많이 사용해보기-> 분석 곧 이해하기
+										// 1. 무슨 값을 쓸지?
+										// 2. 무슨연산을 쓸지?
+				//로그인이란 뭘까? -> 아이디, 패스워드 입력!
+				
+				// 로그인 구현 시 필요한 값
+				// 1. 사용자가 입력한 아이디 값  -> 문자열(무슨 값을 사용할지 먼저 생각해보기)
+				// 2. 사용자가 입력한 비밀번호 값  -> 문자열
+				
+				// 로그인을 위해서 필요한 선행작업 : 회원 가입
+				// 회원가입은 다음의 정보로 했다고 가정
+				String id = "user01";
+				String password = "user01";
+				String name = "홍길동";
+				
+				// 1. 사용자에게 로그인 화면을 출력
+				// 2. 사용자에게 아이디와 패스워드를 입력받음
+				// 3. 가입시 입력했던 아이디와 비밀번호를 둘 다 정확히 입력한다면 로그인 성공 화면 출력
+				// 4. 가입시 입력했던 아이디 또는 비밀번호가 하나라도 일치하지 않을 경우 로그인 실패 화면 출력
+				
+				System.out.println("배달의 KH");
+				System.out.println("--------------------------");
+				System.out.println("로그인 서비스 입니다.");
+				System.out.println("--------------------------");
+				Scanner sc = new Scanner(System.in);
+				
+				System.out.println("============================");
+				System.out.print("아이디를 입력해주세요 > ");
+				
+				String userid = sc.nextLine();
+				System.out.println("=============");
+				
+				System.out.print("비밀번호를 입력해 주세요 > ");
+				String userPwd = sc.nextLine();
+				
+				// 만약에  사용자가 로그인 시 입력한 아이디 값과 회원가입 시 입력한 아이디 값이 동일하고
+				// 사용자가 로그인 시 입력한 패스워드 값과 회원가입 시 입력한 패스워드 값이 동일하다면
+				// 저장소바꾸고 / 유효성검증 / 비밀번호암호화
+				if(userid.equals(id)&& userPwd.equals(password)) {
+					System.out.println("로그인 성공~" + name + "님 환영해용~");
+				}else {
+					System.out.println("아이디 또는 비밀번호가 일치하지 않습니다.");
+				}
+				
+				/* int count = 0;
+				 * if(userId.equals(id) && userPwd.equals(password) && count < 6) {
+				 * 	System.out.println("로그인ㅍ성공 ~" + name + "님 환영해용~");
+				 * 	count = 0;
+				 * } else{
+				 * 		System.out.println("아이디 또는 비밀번호가 일치하지 않습니다.");
+				 * 		count++;
+				 * } 
+				 * 
+				 */
+				
+				// 기본자료형 : boolean , char, byte, short, int, long, float, double 
+				// => 기본자료형의 경우 동등비교연산자를 사용해서 비교연산을 수행함(==, !=)
+				
+				// 참조자료형 : 나머지 전부
+				// => 동등비교연산자(==, !=)를 통해서 값을 비교하는것이 불가능하다!
+				// 문자열 값을 비교 :  equals() => true / false
+				// 실제 변수에 담기는 값이 '주소값'이기 때문
+				
+				
+			}
+	
+	
+	
+}
