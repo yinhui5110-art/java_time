@@ -39,6 +39,6 @@ public class Ticket {
 	}
 	
 	public String info() {
-		return "기내식 : " + meal + ", 서비스 : " + service + ", 좌석 : " + seatNumber + ", 비용 : " + price;
+		return "기내식 :" + meal + ", 서비스 :" + service + ", 좌석 :" + seatNumber + ", 비용 :" + price;
 	}
 }
