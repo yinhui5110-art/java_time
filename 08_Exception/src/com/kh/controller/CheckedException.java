@@ -41,7 +41,10 @@ public class CheckedException {
 	private void method() throws IOException { //IOException에서 예외처리 해야하는데 throws가 던지고 있다.
 		
 		System.out.println("아주 위험한 코드 들어있음!!!");
-		throw new RuntimeException("예외발생!!"); //사용자가 예외를 발생 시키는 것이다
+		throw new RuntimeException("예외발생!!"); 
+		// throw : 사용자가 예외를 발생 시키는 것이다
+		// 
+		
 		
 	}
 	
