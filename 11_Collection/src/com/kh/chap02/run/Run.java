@@ -13,7 +13,7 @@ public class Run {
 		/*
 		 *  자바의 컬렉션(Collection Framework
 		 * 
-		 * 추상적자료현(Abstract Data Type) => Interface
+		 * 추상적자료형(Abstract Data Type) => Interface
 		 *+
 		 * rnguscp => Class
 		 * +
@@ -27,7 +27,7 @@ public class Run {
 		 *  2. 배열 중간 위치에 새로운 요소를 추가하거나 삭제할 때 기존값을 밀거나 땡기는 코드를 써야함
 		 *  
 		 * - 컬렉션
-		 *  1. 크기으 제약이 자유로움
+		 *  1. 크기의 제약이 자유로움
 		 *  => 처음 컬렐션 사용할 때 크기를 지정하지 않아도 사용할 수 있음
 		 *  => 만약 요소가 추가되면서 크기를 넘어서는 상황이 발생하면 알아서 확장됨
 		 *  2. 중간에 요소를 추가하거나 삭제하는 경우 기존값을 밀거나 떙기는 코드가 이미 구현되어있음
@@ -40,7 +40,7 @@ public class Run {
 		 * 사용할 데이터의 개수가 명확히 정해져있고 조회의 목적 => 배열
 		 * 데이터들의 추가 수정 삭제가 빈번하게 일어난다 => 컬렉션
 		 * 
-		 * 게념적인 컬렉션의 종류
+		 * 개념적인 컬렉션의 종류
 		 * - List 계열 : 다루려고하는 값(value)만 저장/ 저장 시 순서 유지(index), 중복값 허용
 		 * 				=> LinkedList, ArrayList,Vector...
 		 * 				=>ArrayList
@@ -157,8 +157,17 @@ public class Run {
 		// isEmpy() : 리스트에 요소가 존재하지 않는다면 true / 하나라도 있다면 false
 		System.out.println(plants.isEmpty());
 		plants.clear();
+		
 		System.out.println(plants);
 		System.out.println(plants.isEmpty());
+		/*
+		List<Leaf> leafs = new ArrayList();
+		leafs.add(new Leaf("풀잎","나무"));
+		leafs.add(new Leaf("풀잎2","나무2"));
+		leafs.add(new Leaf("풀잎3","나무3"));
+		*/
+		
+		
 			
 		}
 		
