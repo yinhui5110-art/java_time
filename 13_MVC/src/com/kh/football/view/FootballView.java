@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.kh.football.controller.FootballController;
+import com.kh.football.model.dto.FootballPlayerDto;
 import com.kh.football.model.vo.FootballPlayer;
 
 // 시각적인 부분, 화면 입/출력 받는곳
@@ -26,8 +27,10 @@ public class FootballView {
 			System.out.println("축구선수 관리 프로그램 입니다.");
 			System.out.println("1. 축구선수 전체 조회하기"); //축구선수를 정보를 출력해주는 메소드를 만든다
 			System.out.println("2. 축구선수 추가하기");
+			// 사용자가 입력한 값을 저장소에 저장
 			System.out.println("3. 축구선수 수정하기");
 			System.out.println("4. 축구선수 삭제하기");
+			// 축구선수 id받아서 한명만 지우기
 			System.out.println("0. 프로그램 종료하기");
 			System.out.println();
 			System.out.println("어떤 기능을 이용하시겠어요 > ");
@@ -44,8 +47,11 @@ public class FootballView {
 			}
 			switch(menu) {
 			case 1 : selectAll(); break;
-			case 0 : System.out.println("프로그램을 종료합니다. "); sc.close();return;
-			default: System.out.println("없는 메뉴입니다");
+			case 2 : addFootballPlayer(); break;
+			case 3 : updateFootballPlayer(); break;
+			case 4 : deleteFootballPlayer(); break;
+			case 0 : System.out.println("프로그램을 종료합니다."); sc.close();return;
+			default: System.out.println("없는 메뉴입니다. 다시 선택해주세요. ");
 			}
 		}
 		
@@ -77,6 +83,8 @@ public class FootballView {
 			for( FootballPlayer fp : list) { //향상된 for문이다
 				System.out.println("선수의 정보 : ");
 				System.out.println("---------------------------");
+				System.out.println("아이디 : " + fp.getId());
+				System.out.println("---------------------------");
 				System.out.println("이름 : " + fp.getName());
 				System.out.println("-------------------------");
 				System.out.println("포지션 : " + fp.getPosition());
@@ -98,8 +106,197 @@ public class FootballView {
 			
 		}
 		
+	}
+	
+	
+	private void addFootballPlayer() {
+		// 뷰가 해야할 일
+		// 1. 사용자으 입력값 받기
+		// 2. 모델에서 만든 값 출력하기
+		
+		// 무슨 값을 입력받아야하는가?
+		// 축구선수를 만들 수 있는 값들
+		// 선수이름 : String, 포지션 : String, 등번호 : Integer
+		System.out.println();
+		System.out.println("선수의 이름을 입력해주세요 > ");
+		String name = sc.nextLine();
+		System.out.println("선수의 포지션을 입력해주세요 > ");
+		String position = sc.nextLine();
+		System.out.println("선수의 등 번호를 입력해주세요 > ");
+		int backNumber = 0;
+		try {
+		backNumber = sc.nextInt();
+		
+		} catch (InputMismatchException e) {
+			sc.nextLine();
+			System.out.println("등 번호는 숫자만 입력이 가능합니다.");
+			return;
+			
+		}
+		
+		// **int를 사용한 이유
+		// 1. int가 짧아서
+		// 2. integer는 정수값이 아닌게 들어올 수 있기때문에
+		// 3. integer로 받아버리면 서비스단에서의 검증이 null인지도 체크를 해야하고 
+		//	  음수가 아닌지도 체크를 해야한다.
+		
+		// 사용자의 입력값 받기 끝! -> 뷰가 할 일 1절 끝!
+		// case 1)100%성공이니깐 추가하고 끝내기
+		// case 2) 성공 실패 여부를 판별해서 성공했다 실패했다 출력해주기
+		// case 3) 추가 성공 시 추가된 데이터 출력해주기 실패 시 실패했다고 말해주기
+		
+		
+		// 3개의 값을 넘기는데 너무 번거롭다
+		/* 1. FootballPlayer VO 탈락 ==> 생성자 인자값 부족해서 쓸수 없다.
+		 * 2. ArrayList 사용가능  대신 ==> 인덱스를 알아야 한다.
+		 * 3. HashMap  				==> <String, Object>
+		 * 4. Object[]				==> 차라리 리스트 쓰는게 좋다
+		 * 
+		 * 
+		 */
+		FootballPlayer fp = fc.addFootballPlayer(new FootballPlayerDto(name, position, backNumber));
+								
+		
+		// 성공 / 실패 여부 판별 한 뒤 각각 맞는 출력문을 작성
+		if(fp != null) {
+			selectAll();
+		}else {
+			System.out.println("선수 등록에 실패했습니다.");
+			System.out.println("관리자에게 문의하세요.");
+			
+		}
 		
 	}
+	
+	private void updateFootballPlayer() {
+		// 이름만 바꾸는 기능
+		// 포지션만 바꾸는 기능
+		// 등번호만 바꾸는 기능
+		
+		// 이름하고 포지션만 바꾸는 기능
+		// 이름하고 등번호만 바꾸는 기능
+		// 포지션하고 등번호만 바꾸는 기능
+		
+		// 이름하고 포지션하고 등번호를 바꾸는 기능
+		
+		// 선수를 어떻게 식별할 것인가?
+		// 이름이 일치하면
+		// 포지션이 일치하면
+		// 등번호가 일치하면
+		
+		// 이름과 포지셔닝 일치하면
+		// 포지션과 등번호가 일치하면
+		// 이름과 등번호가 일치하면
+		
+		// 이름과 포지션과 등번호가 일치하면
+		// ID값이 일치하면 ★
+		
+		selectAll();
+		System.out.println("어떤 선수의 정보를 갱신하겠습니까? ");
+		System.out.println("선수의 아이디를 숫자로 입력해주세요 > ");
+		/*
+		try {
+		int id = sc.nextInt();
+		sc.nextLine();
+		}catch(InputMismatchException e) {}
+		// 1. 아이디
+		// 2. 이름,포지션, 등번호
+		
+		try {
+		int backNumber = sc.nextInt();
+		}catch(InputMismatchException e) {}
+		*/
+		
+		try {
+			int id = Integer.parseInt(sc.nextLine());
+			
+			// 1. 입력받은 id값을 가지고 서비스까지가서 id가 있는지 확인
+			//    있으면 아래코드 수행 없으면 return해버리기
+			// **id 중복체크하는 기능
+			// 1_1) 축구선수주소 가지고 있는 List의 주소를 반환받는 메소드를 구현 => Service
+			//      Service메소드를 호출해서 반환받아서 여기서 검사
+			
+			//1_2) id값을 들고 서비스까지 가서 서비스에 검증 로직 작성
+			//     id가 있는지 검증하는 코드는 비즈니스로직이다.
+			boolean result = fc.idCheck(id);
+			
+			if(!result ) {
+				System.out.println("존재하지 않는 아이디 입니다. ");
+				return;
+			}
+			
+			
+			// 2. 입력받은 id값이 있던지 없던지 그냥 다 받아버리기
+			//    그리고 서비스가서 있는지 없는지 판별 후 작업 수행
+			
+			
+			
+			System.out.println("변경하실 이름을 입력해주세요 > ");
+			String name = sc.nextLine();
+			System.out.println("변경하실 포지션을 입력해주세요 > ");
+			String position = sc.nextLine();
+			System.out.println("변경하실 등번호를 입력해주세요 > ");
+			int backNumber = Integer.parseInt(sc.nextLine());
+			
+			// 세개의 value값을 보내주기 위해서
+			//Update  시 새로운 FootballPlayer를 만들어서 넣어주어야하는데
+			// id값을 기존의 id값으로 유지할 것인가?
+			//		 새로운 id값으로 만들어서 넣어줄것인가?
+			fc.updateFootballPlayer(id,new FootballPlayerDto(name,position,backNumber));
+			
+			
+			
+		}catch(NumberFormatException e) {
+			System.out.println("올바른 값을 입력해주세요.");
+			System.out.println("메인 메뉴로 돌아갑니다.");
+			return;
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	private void deleteFootballPlayer() {
+		
+		System.out.println();
+		System.out.println("등록된 축구선수를 해지하겠습니다.");
+		selectAll();
+		System.out.println("어떤 선수를 해지하겠습니까 아이디를 입력해주세요 > ");
+		int id = 0;
+		
+		try {
+			id = sc.nextInt();
+			sc.nextLine();
+			
+		}catch(InputMismatchException e ) {
+			System.out.println("아이디값은 숫자만 입력 가능합니다. ");
+			sc.nextLine();
+			return;
+			
+		}
+		// 우리가 선수삭제해서 해야할 작업
+		
+		// 사용자가 -1 <--유효성 검증-->
+		
+		//구현하는 방식
+		// 1. id를 들고가서 index를 가져와서 index를 전달해서 한번에 리무브
+		// 2. id를 들고가서 서비스에서 반복을 돌려서 찾아서 리무브
+		String result = fc.deleteFootballPlayer(id);
+		if(result != null) {
+			System.out.println(result + "선수의 정보가 삭제되었습니다! ");
+		}else {
+			System.out.println("id를 찾을 수 없습니다. ");
+		}
+		
+		
+		
+		
+	}
+	
 	
 	
 	

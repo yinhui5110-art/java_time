@@ -1,5 +1,6 @@
 package com.kh.football.run;
 
+import com.kh.football.model.dto.FootballPlayerDto;
 import com.kh.football.view.FootballView;
 
 public class Run {
@@ -7,13 +8,12 @@ public class Run {
 	public static void main(String[] args) {
 		
 		// MVC패턴(Model -  View - Controller)
-		// 애플리케이션의 구조를 세가지 요소로 분리하자
-		// 라는 소프트웨어 아키텍쳐 디자인 패턴
+		// 애플리케이션의 구조를 세가지 요소로 분리하자 라는 소프트웨어 아키텍쳐 디자인 패턴
 		// 1. Model(데이터 담당을 한다)
-		// VO => 값을 담당하기 위함이다
-		// DAO => 데이터를 외부매체와의 상호작용
+		// VO(Value Object) => 값을 담당하기 위함이다
+		// DAO(Data Access Object) => 데이터를 외부매체와의 상호작용
 		// Service => 데이터를 가지고 연산하는 비즈니스로직
-		// DTO => 데이터 전송용도 이다
+		// DTO(Date Transfer Object) => 데이터 전송용도
 		// Entity => 영구적으로 저장공간 / 테이블과의 매핑
 		
 		// 2. View => 사용자 인터페이스 담당이다
@@ -31,7 +31,7 @@ public class Run {
 		// Create(생성) :  View에서 만들어진 데이터를 축구선수모양으로 만들고 저장해주는 역할
 		// Read  (조회) : 저장되어있는 축구선수 들을 조회해서 출력하기
 		// Update(수정) : 저장되어 있는 축구선수 들의 값을 갱신
-		// Delete(삭제) : 저장되어있는 축구선수의 데이터를 삭제
+		// Delete(삭제) : 저장되어 있는 축구선수의 데이터를 삭제
 		
 		// 공지사항 ( C : 게시글작성, R : 게시판, U : 게시글수정, D : 게시글삭제) 
 		
@@ -58,7 +58,9 @@ public class Run {
 		 * }
 		 * 
 		 */
+		
 		new FootballView().mainMenu();
+		
 		
 		
 	}
