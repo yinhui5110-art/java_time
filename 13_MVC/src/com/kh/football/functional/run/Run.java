@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import com.kh.football.functional.model.dto.Material;
 import com.kh.football.functional.model.service.BinFilter;
+import com.kh.football.functional.model.service.ExpensiveFilter;
 import com.kh.football.functional.model.service.RedFilter;
 
 public class Run {
@@ -39,18 +40,13 @@ public class Run {
 			}
 		};
 			
-		BinFilter greenFilter = new BinFilter() {
-			@Override
-			public boolean test(Material m ) {
-				return m.getColor().equals("초록색");
-			}
-		};
 		
 		for(Material m : bin) {
 			if(yellowFilter.test(m)) {
 				System.out.println(m.getName());
 			}
 		}
+		
 		
 		BinFilter greenFilter =  m -> m.getColor().equals("초록색");
 		
@@ -59,6 +55,8 @@ public class Run {
 				System.out.println(m.getName());
 			}
 		}
+		
+		
 		
 		BinFilter expensiveFilter = m -> m.getPrice() >= 3500;
 		BinFilter eFilter = new ExpensiveFilter();

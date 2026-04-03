@@ -3,6 +3,7 @@ package com.kh.football.model.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kh.football.model.dao.FootballPlayerDao;
 import com.kh.football.model.dto.FootballPlayerDto;
 import com.kh.football.model.vo.FootballPlayer;
 
@@ -107,6 +108,7 @@ public class FootballService {
 		}
 		*/
 		
+		int index = indexOf(id);
 		// 유효성검사 해야한다
 		boolean result =  validateFootballPlayer(player);
 		if(result) {
@@ -154,9 +156,45 @@ public class FootballService {
 	}
 	
 	
+	public void outputFootballPlayer() {
+		new FootballPlayerDao().outputFootballPlayer(list);
+		
+	}
 	
-	
-	
+	public List<FootballPlayer> findByKeyword(String keyword) {
+		// 검색 => 찾아서
+		// 사용자가 입력한 keyword가 포함된 Footballplayer의 name필드값을
+		// 하나하나 순화하면서 전부다 검사를해서 만약에 name필드값에
+		// 사용자가 입력한 keyword가 포함되어 있다면 이 VO객체의 주소값을
+		// 전부다 View로 반환 해주어야하는데
+		// 이게 하나도 없을 수도 있는데 엄처 많을 수도 있음
+		// 검색결과가 == 1개일 수있음
+		// 검색결과가 == 2개일 수 있음
+		// 검색결과가 == 0개일 수 있음
+		// 검색결과가 == 알 수 가 없음
+		// 저장소 == 배열[], List, Map, Set
+		//  저장값이 얼마인지 몰라서 배열 X
+		// Map은 반복 돌리기 애매모호 하다 △
+		// Set : 정렬의 의미가 없어 지기 때문에 △
+		// List : 검색할때 정렬기준이 달려있고 O
+		
+		
+		// boolean result = list.get(0).getName().contains(keyword); // list.get(0) => VO객체의 주소값
+		//System.out.println(result);							  // getName() => StringPool에서 참조
+		
+		List<FootballPlayer> searched = new ArrayList();
+		for(FootballPlayer player : list) {
+			if(player.getName().contains(keyword)) {
+				searched.add(player);// 앏은 복사
+			}
+			
+			
+		}
+		
+		return searched; // controller로 리턴한다
+		
+		
+	}
 	
 	
 	

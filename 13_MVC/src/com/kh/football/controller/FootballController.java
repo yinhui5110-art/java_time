@@ -46,18 +46,22 @@ public class FootballController {
 
 
 	public FootballPlayer addFootballPlayer(FootballPlayerDto footballPlayerDto) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 
 	public String deleteFootballPlayer(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	
-	
+	public void outputFootballPlayer() {
+		
+	}
+	public List<FootballPlayer> findByKeyword(String keyword) {
+		return fs.findByKeyword(keyword);
+		
+	}
 	
 	
 

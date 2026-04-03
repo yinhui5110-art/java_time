@@ -31,6 +31,8 @@ public class FootballView {
 			System.out.println("3. 축구선수 수정하기");
 			System.out.println("4. 축구선수 삭제하기");
 			// 축구선수 id받아서 한명만 지우기
+			System.out.println("5. 축구선수 정보 파일로 출력하기");
+			System.out.println("6. 축구선수 검색하기");
 			System.out.println("0. 프로그램 종료하기");
 			System.out.println();
 			System.out.println("어떤 기능을 이용하시겠어요 > ");
@@ -50,6 +52,8 @@ public class FootballView {
 			case 2 : addFootballPlayer(); break;
 			case 3 : updateFootballPlayer(); break;
 			case 4 : deleteFootballPlayer(); break;
+			case 5 : fc.outputFootballPlayer(); break;
+			case 6 : findFootballPlayer(); break;
 			case 0 : System.out.println("프로그램을 종료합니다."); sc.close();return;
 			default: System.out.println("없는 메뉴입니다. 다시 선택해주세요. ");
 			}
@@ -146,7 +150,7 @@ public class FootballView {
 		// case 3) 추가 성공 시 추가된 데이터 출력해주기 실패 시 실패했다고 말해주기
 		
 		
-		// 3개의 값을 넘기는데 너무 번거롭다
+		// 3개의 값을 넘기는데 너무 번거롭다 ==> DTO만들자!!
 		/* 1. FootballPlayer VO 탈락 ==> 생성자 인자값 부족해서 쓸수 없다.
 		 * 2. ArrayList 사용가능  대신 ==> 인덱스를 알아야 한다.
 		 * 3. HashMap  				==> <String, Object>
@@ -293,11 +297,43 @@ public class FootballView {
 		}
 		
 		
-		
-		
 	}
 	
-	
+	private void findFootballPlayer() {
+		System.out.println("선수 검색 서비스입니다.");
+		// 사용자에게 이름을 받아서
+		// 똑같은 이름의 선수 다 찾기
+		// 입력값이 이름에 포함되어있는 선수 찾기
+		
+		System.out.println("찾고 싶은 키워드를 입력해주세요 > ");
+		String keyword = sc.nextLine();
+		
+		// 컨트롤러에게 요청
+		List<FootballPlayer>players = fc.findByKeyword(keyword);
+		// 응답이 돌아온 상황
+		//경우의 수
+		// 검색결과가 있을 수 도 있음 /  검색결과가 없을 수도 있음
+		// 검색결과가 한 개일수도 있음 /  검색결과가 백 개일수도 있음
+		
+		if(players.isEmpty()) {
+			System.out.println("==========================");
+			System.out.println("검색결과가 존재하지 않습니다. ");
+			System.out.println("===========================");
+		} else {
+			System.out.println();
+				System.out.println(keyword + "검색 결과 입니다.");
+				for(FootballPlayer player : players) {
+					System.out.println("이름 : " + player.getName()
+					+ ", 포지션 : " + player.getPosition()
+					+ ", 등번호 : " + player.getBackNumber());
+					
+				}
+				
+				System.out.println();
+			
+		}
+		
+	}
 	
 	
 	

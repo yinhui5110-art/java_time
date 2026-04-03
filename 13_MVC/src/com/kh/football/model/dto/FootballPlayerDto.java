@@ -1,7 +1,11 @@
 package com.kh.football.model.dto;
 
+
+// DTO : date transfer object
+//       값      전송    객체
+// 순수하게 데이터를 옮겨담을 용도로 만드는 클래스이다.
 public class FootballPlayerDto {
-	
+	//필드 기본생성자 매개변수생성자 게터 세터
 	
 	private String name;
 	private String position;
