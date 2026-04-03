@@ -14,6 +14,9 @@ public class FootballView {
 	private Scanner sc = new Scanner(System.in); //
 	private FootballController fc = new FootballController();
 	//프로그램 실행 시 보여줄 화면을 출력해주는 기능
+	private BoadView bv = new BoadView();
+	
+	
 	public void mainMenu() {
 		
 		//축구선수 CRUD
@@ -33,6 +36,7 @@ public class FootballView {
 			// 축구선수 id받아서 한명만 지우기
 			System.out.println("5. 축구선수 정보 파일로 출력하기");
 			System.out.println("6. 축구선수 검색하기");
+			System.out.println("7. 축구 이야기 게시판");
 			System.out.println("0. 프로그램 종료하기");
 			System.out.println();
 			System.out.println("어떤 기능을 이용하시겠어요 > ");
@@ -54,6 +58,7 @@ public class FootballView {
 			case 4 : deleteFootballPlayer(); break;
 			case 5 : fc.outputFootballPlayer(); break;
 			case 6 : findFootballPlayer(); break;
+			case 7 : bv.boardMenu(); break;
 			case 0 : System.out.println("프로그램을 종료합니다."); sc.close();return;
 			default: System.out.println("없는 메뉴입니다. 다시 선택해주세요. ");
 			}
